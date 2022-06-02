@@ -1,0 +1,56 @@
+
+<div class="col-md-12 mt-3">
+
+        <div class="mat-elevation-z8">
+            <mat-progress-bar mode="indeterminate" *ngIf="loader"></mat-progress-bar>
+            
+
+                <button mat-mini-fab color="basic" class="pull-right m-2" 
+                    matTooltip="Add New User"
+                    (click)="openUser()"
+                >
+                    <i class="fa fa-plus"></i>
+                </button>
+
+                <button mat-mini-fab color="basic" class="pull-right m-2" 
+                    matTooltip="Refresh"
+                    (click)="getUsers()"
+                >
+                    <i class="fa fa-history"></i>
+                </button>
+
+
+
+            <table mat-table [dataSource]="dataSource">
+          
+              <!-- Position Column -->
+          
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="mobile_number">
+                <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+                <td mat-cell *matCellDef="let element"> {{element.mobile_number}} </td>
+              </ng-container>
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button> + </button>
+                </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+         
+          </div>
+
+
+</div>
